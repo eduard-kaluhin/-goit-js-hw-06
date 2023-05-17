@@ -5,15 +5,18 @@ const boxesContainer = document.querySelector('#boxes');
 
 function createBoxes(amount) {
   let boxSize = 30;
+  const fragment = document.createDocumentFragment();
 
   for (let i = 0; i < amount; i += 1) {
     const box = document.createElement('div');
     box.style.width = `${boxSize}px`;
     box.style.height = `${boxSize}px`;
     box.style.backgroundColor = getRandomHexColor();
-    boxesContainer.appendChild(box);
+    fragment.appendChild(box);
     boxSize += 10;
   }
+
+  boxesContainer.appendChild(fragment);
 }
 
 function destroyBoxes() {
